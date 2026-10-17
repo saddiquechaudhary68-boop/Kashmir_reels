@@ -6,10 +6,10 @@ workflows:
       flutter: stable
       xcode: latest
     scripts:
-      - name: Clean and create android folder if missing
+      - name: Recreate Android structure from scratch
         script: |
-          flutter clean
-          flutter create . --platforms=android
+          rm -rf android
+          flutter create . --platforms=android --org com.kashmir.reels
       - name: Get flutter packages
         script: flutter pub get
       - name: Build APK
